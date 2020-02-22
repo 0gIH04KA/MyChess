@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ChessRules.ColorMethods">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Extension Class\ColorMethods.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChessRules.FigureMethods">
+    <Position X="12.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAA=</HashCode>
+      <FileName>Extension Class\FigureMethods.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChessRules.Board">
+    <Position X="4" Y="3.75" Width="1.5" />
+    <Members>
+      <Method Name="InitCastleFlags" Hidden="true" />
+      <Method Name="InitDrawNumber" Hidden="true" />
+      <Method Name="InitEnpassant" Hidden="true" />
+      <Method Name="InitFigures" Hidden="true" />
+      <Method Name="InitMoveColor" Hidden="true" />
+      <Method Name="InitMoveNumber" Hidden="true" />
+      <Method Name="ParseFEN_AndReplaceOnFigureNone" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="_moveColor" Type="ChessRules.Color" FixedFromPoint="true">
+      <Path>
+        <Point X="4" Y="4.688" />
+        <Point X="2" Y="4.688" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="_figures" Type="ChessRules.Figure" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.5" Y="5.625" />
+        <Point X="8" Y="5.625" />
+        <Point X="8" Y="5.625" />
+        <Point X="10.5" Y="5.625" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAgEAAAAAIAAFAEgK0CCAAAkAgAAAAFoAIAiAQAEBAA=</HashCode>
+      <FileName>Board\Board.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_moveColor" />
+      <Field Name="_figures" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ChessRules.Chess">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <AssociationLine Name="_board" Type="ChessRules.Board" FixedFromPoint="true">
+      <Path>
+        <Point X="4.625" Y="2.632" />
+        <Point X="4.625" Y="3.75" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAACgEAAIAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Chess.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_board" />
+      <Field Name="_moves" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ChessRules.FigureMoving">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="_figure" Type="ChessRules.Figure" FixedFromPoint="true">
+      <Path>
+        <Point X="10.938" Y="2.055" />
+        <Point X="10.938" Y="5" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.143" Y="0.11" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="_promotion" Type="ChessRules.Figure">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.044" Y="0.12" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>QgAAAAAAABAAAAAEEAAABAAAAiAIEAAQAAAAgCAAAAA=</HashCode>
+      <FileName>FigureMoving.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_figure" />
+      <Field Name="_from" />
+      <Field Name="_to" />
+      <Field Name="_promotion" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ChessRules.FigureOnSquare">
+    <Position X="14" Y="4.75" Width="1.5" />
+    <AssociationLine Name="_figure" Type="ChessRules.Figure" FixedFromPoint="true">
+      <Path>
+        <Point X="14" Y="5.375" />
+        <Point X="12" Y="5.375" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="_square" Type="ChessRules.Square" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="14.75" Y="4.75" />
+        <Point X="14.75" Y="4.375" />
+        <Point X="14.75" Y="4.375" />
+        <Point X="14.75" Y="3.084" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAEAAgAAAgAAAAAAA=</HashCode>
+      <FileName>FigureOnSquare.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_figure" />
+      <Field Name="_square" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ChessRules.Moves">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <Members>
+      <Method Name="CanFigureMove" Hidden="true" />
+      <Method Name="CanKingMove" Hidden="true" />
+      <Method Name="CanKnightMove" Hidden="true" />
+      <Method Name="CanMoveFrom" Hidden="true" />
+      <Method Name="CanMoveTo" Hidden="true" />
+      <Method Name="CanPawnEat" Hidden="true" />
+      <Method Name="CanpawnGo" Hidden="true" />
+      <Method Name="CanPawnJump" Hidden="true" />
+      <Method Name="CanPawnMove" Hidden="true" />
+      <Method Name="CanStraightMove" Hidden="true" />
+      <Method Name="RestrictionsBishop" Hidden="true" />
+      <Method Name="RestrictionsRook" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAABICCQCAAACAAEEAAAiAAACAAICABAgACAAAAAAAA=</HashCode>
+      <FileName>Moves.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_figureMoving" />
+      <Field Name="_board" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ChessRules.NextBoard">
+    <Position X="4" Y="6.5" Width="1.5" />
+    <Members>
+      <Method Name="ConverteToStandartFEN" Hidden="true" />
+      <Method Name="FEN_CastleFlags" Hidden="true" />
+      <Method Name="FEN_DrawNumber" Hidden="true" />
+      <Method Name="FEN_Enpassant" Hidden="true" />
+      <Method Name="FEN_Figures" Hidden="true" />
+      <Method Name="FEN_MoveColor" Hidden="true" />
+      <Method Name="FEN_MoveNumber" Hidden="true" />
+      <Method Name="SetFigureAt" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAABAACAAAAAAIAAAgAIAgAAIAAIAAAQBCAAAAAgAIA=</HashCode>
+      <FileName>Board\NextBoard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="ChessRules.Square">
+    <Position X="14" Y="0.5" Width="1.5" />
+    <Members>
+      <Method Name="operator !=" Hidden="true" />
+      <Method Name="operator ==" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AQAAAAAIAAQAIAAAAAAEAAQAAAAAAAAAAAAAAAAAYiA=</HashCode>
+      <FileName>Struct\Square.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="ChessRules.Color">
+    <Position X="0.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Enum\Color.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ChessRules.Figure">
+    <Position X="10.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQIAIIQAAAAAAAAAABAIAABAAEAAAIAAAAIAQAAQAAA=</HashCode>
+      <FileName>Enum\Figure.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -57,7 +57,7 @@ namespace ChessRules
 
         #endregion
 
-        #region ---===    Public Methods   ===---
+        #region ---===   Public Methods   ===---
 
         /// <summary>
         /// 

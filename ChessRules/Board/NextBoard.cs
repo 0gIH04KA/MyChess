@@ -31,6 +31,9 @@ namespace ChessRules
             DropEnpassant();
             SetEnpassant();
 
+            MoveCastlingRook();
+            UpdateCastleFlags();
+
             UpdateMoveNumber();
             UpdateMoveColor();
 
@@ -140,6 +143,130 @@ namespace ChessRules
         private void UpdateMoveColor()
         {
             MoveColor = MoveColor.FlipColor();
+        }
+
+        /// <summary>
+        /// 
+        /// алгоритм перемещения ладьи при рокирвоки
+        /// 
+        /// </summary>
+        private void MoveCastlingRook()
+        {
+            //  перемещение белой ладьи при короткой рокировке
+            if (_figureMoving.FigurE == Figure.whiteKing)
+            {
+                if (_figureMoving.From == new Square("e1"))
+                {
+                    if (_figureMoving.To == new Square("g1"))
+                    {
+                        SetFigureAt(new Square("h1"), Figure.none);
+                        SetFigureAt(new Square("f1"), Figure.whiteRook);
+
+                        return;
+                    }
+                }
+            }
+
+            //  перемещение белой ладьи при длинной рокировке
+            if (_figureMoving.FigurE == Figure.whiteKing)
+            {
+                if (_figureMoving.From == new Square("e1"))
+                {
+                    if (_figureMoving.To == new Square("c1"))
+                    {
+                        SetFigureAt(new Square("a1"), Figure.none);
+                        SetFigureAt(new Square("d1"), Figure.whiteRook);
+
+                        return;
+                    }
+                }
+            }
+
+            //  перемещение черной ладьи при короткой рокировке
+            if (_figureMoving.FigurE == Figure.blackKing)
+            {
+                if (_figureMoving.From == new Square("e8"))
+                {
+                    if (_figureMoving.To == new Square("g8"))
+                    {
+                        SetFigureAt(new Square("h8"), Figure.none);
+                        SetFigureAt(new Square("f8"), Figure.blackRook);
+
+                        return;
+                    }
+                }
+            }
+
+            //  перемещение черной ладьи при длинной рокировке
+            if (_figureMoving.FigurE == Figure.blackKing)
+            {
+                if (_figureMoving.From == new Square("e8"))
+                {
+                    if (_figureMoving.To == new Square("c8"))
+                    {
+                        SetFigureAt(new Square("a8"), Figure.none);
+                        SetFigureAt(new Square("d8"), Figure.blackRook);
+
+                        return;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// алгоритм обновления флагов разрешающие рокировку 
+        /// 
+        /// </summary>
+        private void UpdateCastleFlags()
+        {
+            switch (_figureMoving.FigurE)
+            {
+
+                case Figure.whiteKing:
+
+                    CanCastleA1 = false;
+                    CanCastleH1 = false;
+
+                    return;
+
+                case Figure.whiteRook:
+
+                    if (_figureMoving.From == new Square("a1"))
+                    {
+                        CanCastleA1 = false;
+                    }
+
+                    if (_figureMoving.From == new Square("h1"))
+                    {
+                        CanCastleH1 = false;
+                    }
+
+                    return;
+
+                case Figure.blackKing:
+
+                    CanCastleA8 = false;
+                    CanCastleH8 = false;
+
+                    return;
+               
+                case Figure.blackRook:
+
+                    if (_figureMoving.From == new Square("a8"))
+                    {
+                        CanCastleA8 = false;
+                    }
+
+                    if (_figureMoving.From == new Square("h8"))
+                    {
+                        CanCastleH8 = false;
+                    }
+
+                    return;
+
+                default: return;
+            }
         }
 
         /// <summary>

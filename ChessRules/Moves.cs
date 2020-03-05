@@ -142,7 +142,8 @@ namespace ChessRules
                 case Figure.whiteKing:
                 case Figure.blackKing:
 
-                    return CanKingMove();
+                    return CanKingMove()
+                        || CanKingCastle();
 
                 case Figure.whiteQueen:
                 case Figure.blackQueen:
@@ -196,6 +197,133 @@ namespace ChessRules
         {
             return (_figureMoving.AbsDeltaX <= 1) 
                 && (_figureMoving.AbsDeltaY <= 1);
+        }
+
+        /// <summary>
+        /// 
+        /// метод который описывает алгоритм рокировки Короля
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        private bool CanKingCastle()
+        {
+            //  алгоритм рокировки белого короря
+            if (_figureMoving.FigurE == Figure.whiteKing)
+            {
+                //  короткая рокировка белого короля
+                if (_figureMoving.From == new Square("e1"))
+                {
+                    if (_figureMoving.To == new Square("g1"))
+                    {
+                        if (_board.CanCastleH1)
+                        {
+                            if (_board.GetFigureAt(new Square("h1")) == Figure.whiteRook)
+                            {
+                                if (_board.GetFigureAt(new Square("f1")) == Figure.none)
+                                {
+                                    if (_board.GetFigureAt(new Square("g1")) == Figure.none)
+                                    {
+                                        if (true /*!_board.IsCheck() 
+                     && !_board.IsCheckAfterMoving ("Ke1f1")*/)
+                                        {
+                                            return true;
+                                        }
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                }
+
+                //  длинная рокировка белого короря
+                if (_figureMoving.From == new Square("e1"))
+                {
+                    if (_figureMoving.To == new Square("c1"))
+                    {
+                        if (_board.CanCastleA1)
+                        {
+                            if (_board.GetFigureAt(new Square("a1")) == Figure.whiteRook)
+                            {
+                                if (_board.GetFigureAt(new Square("b1")) == Figure.none)
+                                {
+                                    if (_board.GetFigureAt(new Square("c1")) == Figure.none)
+                                    {
+                                        if (_board.GetFigureAt(new Square("d1")) == Figure.none)
+                                        {
+                                            if (true /*!_board.IsCheck() 
+                     && !_board.IsCheckAfterMoving ("Ke1d1")*/)
+                                            {
+                                                return true;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            //  алгоритм рокировки черного короля
+            if (_figureMoving.FigurE == Figure.blackKing)
+            {
+                //  короткая рокировка черного короля
+                if (_figureMoving.From == new Square("e8"))
+                {
+                    if (_figureMoving.To == new Square("g8"))
+                    {
+                        if (_board.CanCastleH8)
+                        {
+                            if (_board.GetFigureAt(new Square("h8")) == Figure.blackRook)
+                            {
+                                if (_board.GetFigureAt(new Square("f8")) == Figure.none)
+                                {
+                                    if (_board.GetFigureAt(new Square("g8")) == Figure.none)
+                                    {
+                                        if (true /*!_board.IsCheck() 
+                     && !_board.IsCheckAfterMoving ("ke8f8")*/)
+                                        {
+                                            return true;
+                                        }
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                }
+
+                //  длинная рокировка черного короля
+                if (_figureMoving.From == new Square("e8"))
+                {
+                    if (_figureMoving.To == new Square("c8"))
+                    {
+                        if (_board.CanCastleA8)
+                        {
+                            if (_board.GetFigureAt(new Square("a8")) == Figure.blackRook)
+                            {
+                                if (_board.GetFigureAt(new Square("b8")) == Figure.none)
+                                {
+                                    if (_board.GetFigureAt(new Square("c8")) == Figure.none)
+                                    {
+                                        if (_board.GetFigureAt(new Square("d8")) == Figure.none)
+                                        {
+                                            if (true /*!_board.IsCheck() 
+                     && !_board.IsCheckAfterMoving ("ke8d8")*/)
+                                            {
+                                                return true;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+           
+            return false;
         }
 
         /// <summary>

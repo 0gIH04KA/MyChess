@@ -49,8 +49,7 @@ namespace ChessRules
         private void MoveFigures()
         {
             SetFigureAt(_figureMoving.From, Figure.none);
-            SetFigureAt(_figureMoving.To,
-                _figureMoving.Promotion == Figure.none ? _figureMoving.FigurE : _figureMoving.Promotion);
+            SetFigureAt(_figureMoving.To, _figureMoving.PlacedFigure);
         }
 
         /// <summary>

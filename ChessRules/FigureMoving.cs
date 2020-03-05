@@ -72,6 +72,14 @@ namespace ChessRules
             }
         }
 
+        public Figure PlacedFigure
+        {
+            get 
+            {
+                return _promotion == Figure.none ? _figure : _promotion;
+            }
+        }
+
         /// <summary>
         /// 
         /// получение DeltaX координат

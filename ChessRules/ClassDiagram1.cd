@@ -71,12 +71,9 @@
   </Class>
   <Class Name="ChessRules.FigureMoving">
     <Position X="10.5" Y="0.5" Width="1.5" />
-    <Compartments>
-      <Compartment Name="Properties" Collapsed="true" />
-    </Compartments>
     <AssociationLine Name="_figure" Type="ChessRules.Figure" FixedFromPoint="true">
       <Path>
-        <Point X="10.938" Y="2.055" />
+        <Point X="10.938" Y="3.978" />
         <Point X="10.938" Y="5" />
       </Path>
       <MemberNameLabel ManuallyPlaced="true">

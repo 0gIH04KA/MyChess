@@ -273,7 +273,8 @@ namespace ChessRules
 
             return CanpawnGo(stepY)     //+1    
                 || CanPawnJump(stepY)   //+2
-                || CanPawnEat(stepY);   
+                || CanPawnEat(stepY)
+                || CanPawnEnpassant(stepY);   
         }
 
         /// <summary>
@@ -350,6 +351,35 @@ namespace ChessRules
         }
 
         /// <summary>
+        ///  
+        /// метод который описывает взятие пешки на проходе
+        /// 
+        /// </summary>
+        private bool CanPawnEnpassant(int stepY)
+        {
+            if (_figureMoving.To == _board.Enpassant)
+            {
+                if (_board.GetFigureAt(_figureMoving.To) == Figure.none)
+                {
+                    if (_figureMoving.DeltaY == stepY)
+                    {
+                        if (_figureMoving.AbsDeltaX == 1)
+                        {
+                            if (stepY == +1 && _figureMoving.From.Y == 4
+                             || stepY == -1 && _figureMoving.From.Y == 3)
+                            {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return false;
+        }
+
+
+        /// <summary>
         /// 
         /// метод который ограничивает движение Ладьи по игровому полю
         /// 
@@ -375,3 +405,6 @@ namespace ChessRules
 
     }
 }
+
+
+

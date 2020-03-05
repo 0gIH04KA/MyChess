@@ -37,7 +37,7 @@ namespace ChessRules
 
         /// <summary>
         /// 
-        /// none - отсутсвующая координата на игровом поле
+        /// none - отсутсвующая координата на игровой доске
         /// 
         /// </summary>
         private static Square none = new Square(-1, -1);
@@ -73,6 +73,13 @@ namespace ChessRules
             }
         }
 
+        public static Square None
+        {
+            get 
+            {
+                return none;
+            }
+        }
 
         /// <summary>
         /// 

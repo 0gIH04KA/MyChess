@@ -28,6 +28,9 @@ namespace ChessRules
 
             MoveFigures();
 
+            DropEnpassant();
+            SetEnpassant();
+
             UpdateMoveNumber();
             UpdateMoveColor();
 
@@ -48,6 +51,51 @@ namespace ChessRules
             SetFigureAt(_figureMoving.From, Figure.none);
             SetFigureAt(_figureMoving.To,
                 _figureMoving.Promotion == Figure.none ? _figureMoving.FigurE : _figureMoving.Promotion);
+        }
+
+        /// <summary>
+        /// 
+        /// метод который реализует взятие пешки на проходе
+        /// 
+        /// </summary>
+        private void DropEnpassant()
+        {
+            if (_figureMoving.To == Enpassant)
+            {
+                if (_figureMoving.FigurE == Figure.blackPawn 
+                 || _figureMoving.FigurE == Figure.whitePawn)
+                {
+                    SetFigureAt(new Square(_figureMoving.To.X, _figureMoving.From.Y), Figure.none);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// установка битого поля при движение пешки на 2 клетки
+        /// 
+        /// </summary>
+        private void SetEnpassant()
+        {
+            Enpassant = Square.None;
+
+            if (_figureMoving.FigurE == Figure.whitePawn)
+            {
+                if (_figureMoving.From.Y == 1 
+                 && _figureMoving.To.Y == 3)    //toDo: магические цифры
+                {
+                    Enpassant = new Square(_figureMoving.From.X, 2);
+                }
+            }
+
+            if (_figureMoving.FigurE == Figure.blackPawn)
+            {
+                if (_figureMoving.From.Y == 6
+                 && _figureMoving.To.Y == 4)    //toDo: магические цифры
+                {
+                    Enpassant = new Square(_figureMoving.From.X, 5);
+                }
+            }
         }
 
         /// <summary>

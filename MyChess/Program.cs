@@ -19,8 +19,7 @@ namespace MyChess
     {
         static void Main(string[] args)
         {
-            // var chess = new Chess(Constant.startingFEN);
-            var chess = new Chess("7K/8/5k2/8/8/8/6q1/8 b - - 0 0");
+            var chess = new Chess(Constant.startingFEN);
 
             while (!chess.IsGameOver)
             {

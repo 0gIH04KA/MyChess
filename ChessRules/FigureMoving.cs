@@ -15,6 +15,8 @@ namespace ChessRules
     {
         #region ---===   Private   ===---
 
+        private static FigureMoving _none = new FigureMoving();
+
         private Figure _figure;
         private Square _from;
         private Square _to;
@@ -77,6 +79,19 @@ namespace ChessRules
             get 
             {
                 return _promotion == Figure.none ? _figure : _promotion;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// получение пустого хода
+        /// 
+        /// </summary>
+        public static FigureMoving None
+        {
+            get 
+            {
+                return _none;
             }
         }
 
@@ -161,6 +176,19 @@ namespace ChessRules
         #endregion
 
         #region ---===   Ctor   ===---
+
+        /// <summary>
+        /// 
+        /// конструктор для создания пустого хода
+        /// 
+        /// </summary>
+        private FigureMoving()
+        {
+            _figure = Figure.none;
+            _from = Square.None;
+            _to = Square.None;
+            _promotion = Figure.none;
+        }
 
         public FigureMoving(FigureOnSquare figureOnSquare, Square to, 
                             Figure promotion = Figure.none)

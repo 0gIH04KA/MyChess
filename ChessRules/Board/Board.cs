@@ -272,6 +272,34 @@ namespace ChessRules
             return this[square];
         }
 
+        /// <summary>
+        /// 
+        /// метод для проверка шага для нашего короля
+        /// 
+        /// </summary>
+        public bool IsCheck()
+        {
+            return IsCheckAfter(FigureMoving.None);
+        }
+
+        /// <summary>
+        /// 
+        /// метод проверки шага королю после выполнения хода
+        /// 
+        /// </summary>
+        /// 
+        /// <param name="figureMoving"> 
+        /// 
+        /// фигура которая совершает ход
+        /// 
+        /// </param>
+        public bool IsCheckAfter(FigureMoving figureMoving)
+        {
+            Board after = Move(figureMoving);
+
+            return after.CanEatKing();
+        }
+
         #endregion
 
         #region ---===   Private Method   ===---
@@ -293,6 +321,49 @@ namespace ChessRules
             InitEnpassant(parts[3]);
             InitDrawNumber(parts[4]);
             InitMoveNumber(parts[5]);
+        }
+
+        /// <summary>
+        /// 
+        /// алгоритм проверки возможности сьедения вражеского короля
+        /// 
+        /// </summary>
+        private bool CanEatKing()
+        {
+            Square badKing = FindBadKing();
+            Moves move = new Moves(this);
+
+            foreach (FigureOnSquare figureOnSquare in YieldFiguresOnSquare())
+            {
+                if (move.CanMove(new FigureMoving (figureOnSquare, badKing)))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// 
+        /// метод поиска вражеского короля на игровой доске
+        /// 
+        /// </summary>
+        private Square FindBadKing()
+        {
+            Figure badKing = MoveColor == Color.white
+                    ? Figure.blackKing
+                    : Figure.whiteKing;
+
+            foreach (Square square in Square.YieldBoardSquare())
+            {
+                if (GetFigureAt(square) == badKing)
+                {
+                    return square;
+                }
+            }
+
+            return Square.None;
         }
 
         #endregion

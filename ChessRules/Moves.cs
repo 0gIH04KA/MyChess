@@ -223,10 +223,12 @@ namespace ChessRules
                                 {
                                     if (_board.GetFigureAt(new Square("g1")) == Figure.none)
                                     {
-                                        if (true /*!_board.IsCheck() 
-                     && !_board.IsCheckAfterMoving ("Ke1f1")*/)
+                                        if (!_board.IsCheck())
                                         {
-                                            return true;
+                                            if (!_board.IsCheckAfter(new FigureMoving("Ke1f1")))
+                                            {
+                                                return true;
+                                            }
                                         }
                                     }
                                 }
@@ -251,10 +253,12 @@ namespace ChessRules
                                     {
                                         if (_board.GetFigureAt(new Square("d1")) == Figure.none)
                                         {
-                                            if (true /*!_board.IsCheck() 
-                     && !_board.IsCheckAfterMoving ("Ke1d1")*/)
+                                            if (!_board.IsCheck())
                                             {
-                                                return true;
+                                                if (!_board.IsCheckAfter(new FigureMoving("Ke1d1")))
+                                                {
+                                                    return true;
+                                                }
                                             }
                                         }
                                     }
@@ -281,14 +285,15 @@ namespace ChessRules
                                 {
                                     if (_board.GetFigureAt(new Square("g8")) == Figure.none)
                                     {
-                                        if (true /*!_board.IsCheck() 
-                     && !_board.IsCheckAfterMoving ("ke8f8")*/)
+                                        if (!_board.IsCheck())
                                         {
-                                            return true;
+                                            if (!_board.IsCheckAfter(new FigureMoving ("ke8f8")))
+                                            {
+                                                return true;
+                                            }
                                         }
                                     }
                                 }
-
                             }
                         }
                     }
@@ -309,10 +314,12 @@ namespace ChessRules
                                     {
                                         if (_board.GetFigureAt(new Square("d8")) == Figure.none)
                                         {
-                                            if (true /*!_board.IsCheck() 
-                     && !_board.IsCheckAfterMoving ("ke8d8")*/)
+                                            if (!_board.IsCheck())
                                             {
-                                                return true;
+                                                if (!_board.IsCheckAfter(new FigureMoving("ke8d8")))
+                                                {
+                                                    return true;
+                                                }
                                             }
                                         }
                                     }

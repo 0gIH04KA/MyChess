@@ -142,7 +142,10 @@ namespace ChessRules
 
                         if (_moves.CanMove(figureMoving))
                         {
-                            yield return figureMoving.ToString();
+                            if (!_board.IsCheckAfter(figureMoving))
+                            {
+                                yield return figureMoving.ToString();
+                            }
                         }
                     }
                 }

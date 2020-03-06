@@ -17,6 +17,8 @@ namespace ChessRules
         private bool _isCheckMate;
         private bool _isStealMate;
 
+        private bool _isGameOver;
+
         #endregion
 
         #region ---===   Get / Set   ===---
@@ -53,6 +55,14 @@ namespace ChessRules
             }
         }
 
+        public bool IsGameOver
+        { 
+            get 
+            {
+                return _isGameOver;
+            }
+        }
+
         #endregion
 
         #region ---===   Ctor   ===---
@@ -62,7 +72,23 @@ namespace ChessRules
             _board = new Board(fen);
             _moves = new Moves(_board);
 
-            SetCheckFlags();
+            try
+            {
+                SetCheckFlags();
+            }
+            catch (CheckMateException)
+            {
+                _isGameOver = true;
+
+                throw;
+            }
+            catch (StealMateException)
+            {
+                _isGameOver = true;
+
+                throw;
+            }
+           
         }
 
         private Chess(Board board)
@@ -70,15 +96,27 @@ namespace ChessRules
             _board = board;
             _moves = new Moves(board);
 
-            SetCheckFlags();
+            try
+            {
+                SetCheckFlags();
+            }
+            catch (CheckMateException)
+            {
+                _isGameOver = true;
+
+                throw;
+            }
+            catch (StealMateException)
+            {
+                _isGameOver = true;
+
+                throw; 
+            }
         }
 
         #endregion
 
         #region ---===   Public Method   ===---
-
-        #endregion
-
 
         /// <summary>
         /// 
@@ -114,7 +152,11 @@ namespace ChessRules
             /// </returns>
             if (!_moves.CanMove(figureMoving))
             {
-                return this;
+                return this; //ToDo : add new exception данный ход не возможен!!
+            }
+            if (_board.IsCheckAfter(figureMoving))
+            {
+                return this;//ToDo : add new exception данный ход не возможен, IsCheck!!
             }
 
             Board nextBoard = _board.Move(figureMoving);
@@ -140,6 +182,20 @@ namespace ChessRules
         public char GetFigureAt(int x, int y)
         {
             Square square = new Square(x, y);
+            Figure figure = _board.GetFigureAt(square);
+
+            char thisFigure = '.';
+            if (figure != Figure.none)
+            {
+                thisFigure = (char)figure;
+            }
+
+            return thisFigure;
+        }
+
+        public char GetFigureAt(string xy)
+        {
+            Square square = new Square(xy);
             Figure figure = _board.GetFigureAt(square);
 
             char thisFigure = '.';
@@ -184,6 +240,8 @@ namespace ChessRules
             }
         }
 
+        #endregion
+
         #region ---===   Private Method   ===---
 
         /// <summary>
@@ -206,13 +264,13 @@ namespace ChessRules
             {
                 _isCheckMate = true;
 
-                throw new CheckMateException();
+                throw new CheckMateException(string.Format($"Color: {_board.MoveColor} - Check Mate"));
             }
             else
             {
                 _isStealMate = true;
 
-                throw new StealMateException();
+                throw new StealMateException(string.Format($"Color: {_board.MoveColor} - Steal Mate"));
             }
         }
 

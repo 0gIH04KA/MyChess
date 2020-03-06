@@ -28,21 +28,20 @@
     <Compartments>
       <Compartment Name="Properties" Collapsed="true" />
       <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <AssociationLine Name="_moveColor" Type="ChessRules.Color" FixedFromPoint="true">
       <Path>
-        <Point X="4" Y="4.688" />
-        <Point X="2" Y="4.688" />
+        <Point X="4" Y="4.174" />
+        <Point X="2" Y="4.174" />
       </Path>
     </AssociationLine>
     <AssociationLine Name="_figures" Type="ChessRules.Figure" ManuallyRouted="true" FixedToPoint="true">
       <Path>
-        <Point X="5.5" Y="5.625" />
-        <Point X="5.792" Y="5.625" Type="JumpStart" />
-        <Point X="5.958" Y="5.625" Type="JumpEnd" />
-        <Point X="8" Y="5.625" />
-        <Point X="8" Y="5.625" />
-        <Point X="10.5" Y="5.625" />
+        <Point X="5.5" Y="4.598" />
+        <Point X="8" Y="4.598" />
+        <Point X="8" Y="6.125" />
+        <Point X="10.5" Y="6.125" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
@@ -56,12 +55,14 @@
   </Class>
   <Class Name="ChessRules.Chess">
     <Position X="4" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
     <AssociationLine Name="_board" Type="ChessRules.Board" FixedFromPoint="true">
       <Path>
-        <Point X="4.625" Y="4.237" />
-        <Point X="4.625" Y="7.161" />
-        <Point X="4.75" Y="7.161" />
-        <Point X="4.75" Y="6.911" />
+        <Point X="4.625" Y="2.891" />
+        <Point X="4.625" Y="3.75" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
@@ -97,16 +98,16 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="ChessRules.FigureOnSquare">
-    <Position X="14" Y="4.75" Width="1.5" />
+    <Position X="14" Y="5.25" Width="1.5" />
     <AssociationLine Name="_figure" Type="ChessRules.Figure" FixedFromPoint="true">
       <Path>
-        <Point X="14" Y="5.375" />
-        <Point X="12" Y="5.375" />
+        <Point X="14" Y="5.875" />
+        <Point X="12" Y="5.875" />
       </Path>
     </AssociationLine>
     <AssociationLine Name="_square" Type="ChessRules.Square" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="14.75" Y="4.75" />
+        <Point X="14.75" Y="5.25" />
         <Point X="14.75" Y="4.375" />
         <Point X="14.75" Y="4.375" />
         <Point X="14.75" Y="3.084" />
@@ -185,7 +186,7 @@
     </TypeIdentifier>
   </Enum>
   <Enum Name="ChessRules.Figure">
-    <Position X="10.5" Y="5" Width="1.5" />
+    <Position X="10.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQIAIIQAAAAAAAAAABAIAABAAEAAAIAAAAIAQAAQAAA=</HashCode>
       <FileName>Enum\Figure.cs</FileName>

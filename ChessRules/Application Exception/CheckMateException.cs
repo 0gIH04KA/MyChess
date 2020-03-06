@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace ChessRules
 {
-    class CheckMateException : ApplicationException
+    [Serializable]
+    public class CheckMateException : ApplicationException
     {
         public CheckMateException()
         {

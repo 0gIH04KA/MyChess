@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace ChessRules
 {
-    class StealMateException : ApplicationException
+    [Serializable]
+    public class StealMateException : ApplicationException
     {
         public StealMateException()
         {

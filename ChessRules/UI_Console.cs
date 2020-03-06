@@ -59,15 +59,15 @@ namespace ChessRules
                 sb.AppendLine("Is Check");
             }
 
-            if (chess.IsCheckMate)
-            {
-                sb.AppendLine("Is Check Mate");
-            }
+            //if (chess.IsCheckMate)
+            //{
+            //    sb.AppendLine("Is Check Mate");
+            //}
 
-            if (chess.IsStealMate)
-            {
-                sb.AppendLine("Is Steal Mate");
-            }
+            //if (chess.IsStealMate)
+            //{
+            //    sb.AppendLine("Is Steal Mate");
+            //}
 
             return sb.ToString();
         }

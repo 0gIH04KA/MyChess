@@ -17,12 +17,12 @@ namespace MyChess
     /// </summary>
     class Program
     {
-
         static void Main(string[] args)
         {
-            var chess = new Chess(Constant.startingFEN);
+            // var chess = new Chess(Constant.startingFEN);
+            var chess = new Chess("7K/8/5k2/8/8/8/6q1/8 b - - 0 0");
 
-            while (true)
+            while (!chess.IsGameOver)
             {
 #if DEBUG
                 Console.WriteLine(chess.Fen);
@@ -42,9 +42,35 @@ namespace MyChess
                     break;
                 }
 
-                chess = chess.Move(move);
+                try
+                {
+                    chess = chess.Move(move);
+                }
+                catch (CheckMateException e)
+                {
+                    ConsoleColor temp = Console.ForegroundColor;
+
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(e.Message);
+                    Console.ForegroundColor = temp;
+
+                    break;
+                }
+                catch (StealMateException e)
+                {
+                    ConsoleColor temp = Console.ForegroundColor;
+
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(e.Message);
+                    Console.ForegroundColor = temp;
+
+                    break;
+                }
+
+
             }
-        }
-        
+
+            Console.ReadKey();
+        } 
     }
 }

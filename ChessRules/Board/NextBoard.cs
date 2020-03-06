@@ -84,7 +84,7 @@ namespace ChessRules
             if (_figureMoving.FigurE == Figure.whitePawn)
             {
                 if (_figureMoving.From.Y == 1 
-                 && _figureMoving.To.Y == 3)    //toDo: магические цифры
+                 && _figureMoving.To.Y == 3)    //ToDo: заменить магические значения на константы
                 {
                     Enpassant = new Square(_figureMoving.From.X, 2);
                 }
@@ -93,7 +93,7 @@ namespace ChessRules
             if (_figureMoving.FigurE == Figure.blackPawn)
             {
                 if (_figureMoving.From.Y == 6
-                 && _figureMoving.To.Y == 4)    //toDo: магические цифры
+                 && _figureMoving.To.Y == 4)    //ToDo: заменить магические значения на константы
                 {
                     Enpassant = new Square(_figureMoving.From.X, 5);
                 }

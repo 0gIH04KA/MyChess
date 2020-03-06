@@ -38,13 +38,15 @@
     <AssociationLine Name="_figures" Type="ChessRules.Figure" ManuallyRouted="true" FixedToPoint="true">
       <Path>
         <Point X="5.5" Y="5.625" />
+        <Point X="5.792" Y="5.625" Type="JumpStart" />
+        <Point X="5.958" Y="5.625" Type="JumpEnd" />
         <Point X="8" Y="5.625" />
         <Point X="8" Y="5.625" />
         <Point X="10.5" Y="5.625" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAgEAAAAAIAAFAEgK0CCAAAkAgAAAAFoAIAiAQAEBAA=</HashCode>
+      <HashCode>AAgEAAAABIAAHgEgK0CCAAAkAgAAAAFoAIAiAQAEBAA=</HashCode>
       <FileName>Board\Board.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -56,12 +58,14 @@
     <Position X="4" Y="0.5" Width="1.5" />
     <AssociationLine Name="_board" Type="ChessRules.Board" FixedFromPoint="true">
       <Path>
-        <Point X="4.625" Y="2.632" />
-        <Point X="4.625" Y="3.75" />
+        <Point X="4.625" Y="4.237" />
+        <Point X="4.625" Y="7.161" />
+        <Point X="4.75" Y="7.161" />
+        <Point X="4.75" Y="6.911" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAACgEAAIAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAABMAAAICgEAAIQAAgAAAgAAAKAAAAAAAAAAA=</HashCode>
       <FileName>Chess.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -71,11 +75,7 @@
   </Class>
   <Class Name="ChessRules.FigureMoving">
     <Position X="10.5" Y="0.5" Width="1.5" />
-    <AssociationLine Name="_figure" Type="ChessRules.Figure" FixedFromPoint="true">
-      <Path>
-        <Point X="10.938" Y="3.978" />
-        <Point X="10.938" Y="5" />
-      </Path>
+    <AssociationLine Name="_figure" Type="ChessRules.Figure">
       <MemberNameLabel ManuallyPlaced="true">
         <Position X="0.143" Y="0.11" />
       </MemberNameLabel>
@@ -86,7 +86,7 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>QgAAAAAAABAAAAAEEAAABAAAAiAIEAAQAAAAgCAAAAA=</HashCode>
+      <HashCode>QgAABAAAABAAAAAEEAAABAABAiAIEAAQAAAAgCEAAAA=</HashCode>
       <FileName>FigureMoving.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -138,7 +138,7 @@
       <Method Name="RestrictionsRook" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAABICCQCAAACAAEEAAAiAAACAAICABAgACAAAAAAAA=</HashCode>
+      <HashCode>BAABICCQCAAACAAEEAAAiAAACAAICABAgACCAAAAAAA=</HashCode>
       <FileName>Moves.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -159,7 +159,7 @@
       <Method Name="SetFigureAt" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAABAACAAAAAAIAAAgAIAgAAIAAIAAAQBCAAAAAgAIA=</HashCode>
+      <HashCode>AAABBACAAAAAAIAAAgAIAgAAIAAJQAAQRCAAAAAgAIA=</HashCode>
       <FileName>Board\NextBoard.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -173,7 +173,7 @@
       <Compartment Name="Properties" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AQAAAAAIAAQAIAAAAAAEAAQAAAAAAAAAAAAAAAAAYiA=</HashCode>
+      <HashCode>AQAAAAAIAAQAIAAAAAAEAAQAAAAAAAAAAAAAAAEAYiA=</HashCode>
       <FileName>Struct\Square.cs</FileName>
     </TypeIdentifier>
   </Struct>

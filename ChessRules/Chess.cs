@@ -13,6 +13,10 @@ namespace ChessRules
         private Board _board;
         private Moves _moves;
 
+        private bool _isCheck;
+        private bool _isCheckMate;
+        private bool _isStealMate;
+
         #endregion
 
         #region ---===   Get / Set   ===---
@@ -25,6 +29,30 @@ namespace ChessRules
             }
         }
 
+        public bool IsCheck
+        {
+            get 
+            {
+                return _isCheck;
+            }
+        }
+
+        public bool IsCheckMate
+        {
+            get
+            {
+                return _isCheckMate;
+            }
+        }
+
+        public bool IsStealMate
+        {
+            get
+            {
+                return _isStealMate;
+            }
+        }
+
         #endregion
 
         #region ---===   Ctor   ===---
@@ -33,12 +61,16 @@ namespace ChessRules
         {
             _board = new Board(fen);
             _moves = new Moves(_board);
+
+            SetCheckFlags();
         }
 
         private Chess(Board board)
         {
             _board = board;
             _moves = new Moves(board);
+
+            SetCheckFlags();
         }
 
         #endregion
@@ -152,6 +184,35 @@ namespace ChessRules
             }
         }
 
+        #region ---===   Private Method   ===---
+
+        /// <summary>
+        /// 
+        /// установка флагов для проверки шага, мата, пата
+        /// 
+        /// </summary>
+        private void SetCheckFlags()
+        {
+            _isCheck = _board.IsCheck();
+            _isCheckMate = false;
+            _isStealMate = false;
+
+            foreach (string moves in YieldValidMoves())
+            {
+                return;
+            }
+
+            if (_isCheck)
+            {
+                _isCheckMate = true;
+            }
+            else
+            {
+                _isStealMate = true;
+            }
+        }
+
+        #endregion
 
     }
 }

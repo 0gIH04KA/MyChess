@@ -54,6 +54,21 @@ namespace ChessRules
             sb.AppendLine("  +-----------------+");
             sb.AppendLine("    a b c d e f g h  ");
 
+            if (chess.IsCheck)
+            {
+                sb.AppendLine("Is Check");
+            }
+
+            if (chess.IsCheckMate)
+            {
+                sb.AppendLine("Is Check Mate");
+            }
+
+            if (chess.IsStealMate)
+            {
+                sb.AppendLine("Is Steal Mate");
+            }
+
             return sb.ToString();
         }
 

@@ -19,7 +19,7 @@ namespace MyChess
     {
         static void Main(string[] args)
         {
-            var chess = new Chess(Constant.startingFEN);
+            Chess chess = new Chess(Constant.startingFEN);
 
             while (!chess.IsGameOver)
             {
@@ -65,11 +65,10 @@ namespace MyChess
 
                     break;
                 }
-
-
             }
 
             Console.ReadKey();
-        } 
+        }
+
     }
 }

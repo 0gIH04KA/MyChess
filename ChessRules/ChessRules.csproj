@@ -56,6 +56,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Application Exception\StealMateException.cs" />
     <Compile Include="Struct\Square.cs" />
+    <Compile Include="Тest\Test.cs" />
     <Compile Include="UI_Console.cs" />
   </ItemGroup>
   <ItemGroup>

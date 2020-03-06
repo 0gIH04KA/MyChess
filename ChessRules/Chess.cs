@@ -205,10 +205,14 @@ namespace ChessRules
             if (_isCheck)
             {
                 _isCheckMate = true;
+
+                throw new CheckMateException();
             }
             else
             {
                 _isStealMate = true;
+
+                throw new StealMateException();
             }
         }
 

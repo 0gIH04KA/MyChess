@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Board\Board.cs" />
+    <Compile Include="Application Exception\CheckMateException.cs" />
     <Compile Include="Chess.cs" />
     <Compile Include="Enum\Color.cs" />
     <Compile Include="Extension Class\ColorMethods.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="Moves.cs" />
     <Compile Include="Board\NextBoard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Application Exception\StealMateException.cs" />
     <Compile Include="Struct\Square.cs" />
     <Compile Include="UI_Console.cs" />
   </ItemGroup>

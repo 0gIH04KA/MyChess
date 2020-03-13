@@ -41,26 +41,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Board\Board.cs" />
-    <Compile Include="Application Exception\CheckMateException.cs" />
-    <Compile Include="Chess.cs" />
-    <Compile Include="Enum\Color.cs" />
-    <Compile Include="Extension Class\ColorMethods.cs" />
-    <Compile Include="Enum\Constant.cs" />
-    <Compile Include="Enum\Figure.cs" />
-    <Compile Include="Extension Class\FigureMethods.cs" />
-    <Compile Include="FigureMoving.cs" />
-    <Compile Include="FigureOnSquare.cs" />
-    <Compile Include="Moves.cs" />
-    <Compile Include="Board\NextBoard.cs" />
+    <Compile Include="Model\Board\Board.cs" />
+    <Compile Include="Model\Application Exception\CheckMateException.cs" />
+    <Compile Include="Model\Chess.cs" />
+    <Compile Include="Model\Enum\Color.cs" />
+    <Compile Include="Model\Extension Class\ColorMethods.cs" />
+    <Compile Include="Model\Enum\Constant.cs" />
+    <Compile Include="Model\Enum\Figure.cs" />
+    <Compile Include="Model\Extension Class\FigureMethods.cs" />
+    <Compile Include="Model\FigureMoving.cs" />
+    <Compile Include="Model\FigureOnSquare.cs" />
+    <Compile Include="Model\Moves.cs" />
+    <Compile Include="Model\Board\NextBoard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Application Exception\StealMateException.cs" />
-    <Compile Include="Struct\Square.cs" />
+    <Compile Include="Model\Application Exception\StealMateException.cs" />
+    <Compile Include="Model\Struct\Square.cs" />
     <Compile Include="Тest\Test.cs" />
-    <Compile Include="UI_Console.cs" />
+    <Compile Include="View\UI_Console.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
+    <None Include="Model\ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,21 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="ChessRules.ColorMethods">
-    <Position X="0.5" Y="5.5" Width="1.5" />
+    <Position X="0.5" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Extension Class\ColorMethods.cs</FileName>
+      <FileName>Model\Extension Class\ColorMethods.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ChessRules.FigureMethods">
-    <Position X="12.25" Y="6.75" Width="1.5" />
+    <Position X="12.25" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAA=</HashCode>
-      <FileName>Extension Class\FigureMethods.cs</FileName>
+      <FileName>Model\Extension Class\FigureMethods.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ChessRules.Board">
-    <Position X="4" Y="3.75" Width="1.5" />
+    <Position X="4" Y="3.5" Width="1.5" />
     <Members>
       <Method Name="InitCastleFlags" Hidden="true" />
       <Method Name="InitDrawNumber" Hidden="true" />
@@ -32,21 +32,21 @@
     </Compartments>
     <AssociationLine Name="_moveColor" Type="ChessRules.Color" FixedFromPoint="true">
       <Path>
-        <Point X="4" Y="4.174" />
-        <Point X="2" Y="4.174" />
+        <Point X="4" Y="3.924" />
+        <Point X="2" Y="3.924" />
       </Path>
     </AssociationLine>
-    <AssociationLine Name="_figures" Type="ChessRules.Figure" ManuallyRouted="true" FixedToPoint="true">
+    <AssociationLine Name="_figures" Type="ChessRules.Figure" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="5.5" Y="4.598" />
-        <Point X="8" Y="4.598" />
-        <Point X="8" Y="6.125" />
-        <Point X="10.5" Y="6.125" />
+        <Point X="5.5" Y="4.375" />
+        <Point X="8" Y="4.375" />
+        <Point X="8" Y="4.375" />
+        <Point X="10.5" Y="4.375" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAgEAAAABIAAHgEgK0CCAAAkAgAAAAFoAIAiAQAEBAA=</HashCode>
-      <FileName>Board\Board.cs</FileName>
+      <FileName>Model\Board\Board.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Field Name="_moveColor" />
@@ -62,12 +62,12 @@
     <AssociationLine Name="_board" Type="ChessRules.Board" FixedFromPoint="true">
       <Path>
         <Point X="4.625" Y="2.891" />
-        <Point X="4.625" Y="3.75" />
+        <Point X="4.625" Y="3.5" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAABMAAAICgEAAIQAAgAAAgAAAKAAAAAAAAAAA=</HashCode>
-      <FileName>Chess.cs</FileName>
+      <HashCode>AAAAAAAABMAAAICgEAAIQAAgAAAgAAAKAAAAAACAAAA=</HashCode>
+      <FileName>Model\Chess.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Field Name="_board" />
@@ -76,6 +76,9 @@
   </Class>
   <Class Name="ChessRules.FigureMoving">
     <Position X="10.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
     <AssociationLine Name="_figure" Type="ChessRules.Figure">
       <MemberNameLabel ManuallyPlaced="true">
         <Position X="0.143" Y="0.11" />
@@ -88,7 +91,7 @@
     </AssociationLine>
     <TypeIdentifier>
       <HashCode>QgAABAAAABAAAAAEEAAABAABAiAIEAAQAAAAgCEAAAA=</HashCode>
-      <FileName>FigureMoving.cs</FileName>
+      <FileName>Model\FigureMoving.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Field Name="_figure" />
@@ -98,24 +101,22 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="ChessRules.FigureOnSquare">
-    <Position X="14" Y="5.25" Width="1.5" />
+    <Position X="14" Y="4" Width="1.5" />
     <AssociationLine Name="_figure" Type="ChessRules.Figure" FixedFromPoint="true">
       <Path>
-        <Point X="14" Y="5.875" />
-        <Point X="12" Y="5.875" />
+        <Point X="14" Y="4.625" />
+        <Point X="12" Y="4.625" />
       </Path>
     </AssociationLine>
     <AssociationLine Name="_square" Type="ChessRules.Square" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="14.75" Y="5.25" />
-        <Point X="14.75" Y="4.375" />
-        <Point X="14.75" Y="4.375" />
+        <Point X="14.75" Y="4" />
         <Point X="14.75" Y="3.084" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAEAAgAAAgAAAAAAA=</HashCode>
-      <FileName>FigureOnSquare.cs</FileName>
+      <FileName>Model\FigureOnSquare.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Field Name="_figure" />
@@ -140,7 +141,7 @@
     </Members>
     <TypeIdentifier>
       <HashCode>BAABICCQCAAACAAEEAAAiAAACAAICABAgACCAAAAAAA=</HashCode>
-      <FileName>Moves.cs</FileName>
+      <FileName>Model\Moves.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Field Name="_figureMoving" />
@@ -148,7 +149,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="ChessRules.NextBoard">
-    <Position X="4" Y="6.5" Width="1.5" />
+    <Position X="4" Y="5.25" Width="1.5" />
     <Members>
       <Method Name="ConverteToStandartFEN" Hidden="true" />
       <Method Name="FEN_CastleFlags" Hidden="true" />
@@ -161,7 +162,7 @@
     </Members>
     <TypeIdentifier>
       <HashCode>AAABBACAAAAAAIAAAgAIAgAAIAAJQAAQRCAAAAAgAIA=</HashCode>
-      <FileName>Board\NextBoard.cs</FileName>
+      <FileName>Model\Board\NextBoard.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Struct Name="ChessRules.Square">
@@ -175,21 +176,21 @@
     </Compartments>
     <TypeIdentifier>
       <HashCode>AQAAAAAIAAQAIAAAAAAEAAQAAAAAAAAAAAAAAAEAYiA=</HashCode>
-      <FileName>Struct\Square.cs</FileName>
+      <FileName>Model\Struct\Square.cs</FileName>
     </TypeIdentifier>
   </Struct>
   <Enum Name="ChessRules.Color">
-    <Position X="0.5" Y="4" Width="1.5" />
+    <Position X="0.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
-      <FileName>Enum\Color.cs</FileName>
+      <FileName>Model\Enum\Color.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="ChessRules.Figure">
-    <Position X="10.5" Y="5.5" Width="1.5" />
+    <Position X="10.5" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQIAIIQAAAAAAAAAABAIAABAAEAAAIAAAAIAQAAQAAA=</HashCode>
-      <FileName>Enum\Figure.cs</FileName>
+      <FileName>Model\Enum\Figure.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Segoe UI" Size="9" />

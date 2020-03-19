@@ -41,6 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Тest\Sealed Class Testing\FiveTesting.cs" />
+    <Compile Include="Тest\Sealed Class Testing\FourthTesting.cs" />
+    <Compile Include="Тest\Sealed Class Testing\ThirdTesting.cs" />
+    <Compile Include="Тest\Sealed Class Testing\SecondTesting.cs" />
+    <Compile Include="Тest\Sealed Class Testing\FirstTesting.cs" />
+    <Compile Include="Тest\Interface\ITesting.cs" />
+    <Compile Include="Тest\Test Exception\ZeroTestException.cs" />
+    <Compile Include="Тest\Test Exception\FourthTestException.cs" />
+    <Compile Include="Тest\Test Exception\ThirdTestException.cs" />
+    <Compile Include="Тest\Test Exception\SecondTestException.cs" />
+    <Compile Include="Тest\Test Exception\FirstTestException.cs" />
     <Compile Include="Model\Board\Board.cs" />
     <Compile Include="Model\Application Exception\CheckMateException.cs" />
     <Compile Include="Model\Chess.cs" />
@@ -56,11 +67,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\Application Exception\StealMateException.cs" />
     <Compile Include="Model\Struct\Square.cs" />
+    <Compile Include="Тest\Sealed Class Testing\StandartTesting.cs" />
     <Compile Include="Тest\Test.cs" />
     <Compile Include="View\UI_Console.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Model\ClassDiagram1.cd" />
+    <None Include="Тest\TestClassDiagram.cd" />
+    <None Include="Model\ModelClassDiagram.cd" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

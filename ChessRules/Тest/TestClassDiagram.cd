@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ChessRules.Test">
+    <Position X="7" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAACAAAAAAAAAAAAAAAAAAAAAAgADAAQAAAAAAAA=</HashCode>
+      <FileName>Тest\Test.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChessRules.StandartTesting">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <InheritanceLine Type="ChessRules.Test" FixedFromPoint="true">
+      <Path>
+        <Point X="7" Y="0.918" />
+        <Point X="2" Y="0.918" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AIAQAAABgAAAAAAgUAAAAAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Тest\Sealed Class Testing\StandartTesting.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ChessRules.FirstTesting">
+    <Position X="2.75" Y="1.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <InheritanceLine Type="ChessRules.Test" FixedFromPoint="true">
+      <Path>
+        <Point X="7" Y="1.625" />
+        <Point X="4.25" Y="1.625" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AIAQAAABgAAAAAAgUAAAAAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Тest\Sealed Class Testing\FirstTesting.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ChessRules.SecondTesting">
+    <Position X="4.75" Y="2.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>QIAQAAABgAAAAAAgUAAAAAAAAQAAAAABAAAAAAAAAIA=</HashCode>
+      <FileName>Тest\Sealed Class Testing\SecondTesting.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ChessRules.ThirdTesting">
+    <Position X="9.5" Y="2.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AIAQAAABgAAAAAAgUAAAAAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Тest\Sealed Class Testing\ThirdTesting.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ChessRules.FourthTesting">
+    <Position X="11.5" Y="1.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <InheritanceLine Type="ChessRules.Test" FixedFromPoint="true">
+      <Path>
+        <Point X="8.5" Y="1.625" />
+        <Point X="11.5" Y="1.625" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AIAQAAABgAAAAAAgUAAAAAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Тest\Sealed Class Testing\FourthTesting.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ChessRules.FiveTesting">
+    <Position X="13.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <InheritanceLine Type="ChessRules.Test" FixedToPoint="true">
+      <Path>
+        <Point X="8.5" Y="0.875" />
+        <Point X="13.5" Y="0.875" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AIAQAAABgAAAAAAgUAAAAAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Тest\Sealed Class Testing\FiveTesting.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

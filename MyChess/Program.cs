@@ -19,6 +19,20 @@ namespace MyChess
     {
         static void Main(string[] args)
         {
+            #region ---===   Testing   ==---
+
+            Test test = new Test();
+
+            Console.WriteLine("Loading Game....\n");
+
+            Console.WriteLine(string.Format($"{test.ToString() + "  -->  " + test.ModelTesting()}" + "\n"));
+
+            Console.WriteLine("Для начала игры нажмите любую кнопку\n");
+
+            Console.ReadKey();
+
+            #endregion
+
             Chess chess = new Chess(Constant.startingFEN);
 
             while (!chess.IsGameOver)

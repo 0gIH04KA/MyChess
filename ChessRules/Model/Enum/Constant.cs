@@ -16,5 +16,11 @@ namespace ChessRules
         /// </summary>
         public const string startingFEN = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
 
+        /// <summary>
+        /// 
+        /// количество реализованых тестов
+        /// 
+        /// </summary>
+        public const int COUNT_TEST = 5;
     }
 }

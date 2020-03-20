@@ -8,7 +8,7 @@ namespace ChessRules
 {
     /// <summary>
     /// 
-    /// класс котоырй опичывает движение фигуры
+    /// класс котоырй описывает движение фигуры
     /// 
     /// </summary>
     class FigureMoving

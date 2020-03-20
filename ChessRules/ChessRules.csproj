@@ -76,5 +76,8 @@
     <None Include="Model\ModelClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Content Include="View\Icon\icon.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

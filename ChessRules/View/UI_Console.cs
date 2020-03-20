@@ -111,6 +111,57 @@ namespace ChessRules
             Console.ForegroundColor = old;
         }
 
+        public static void PrintColorPlayer(Chess chess)
+        {
+            ConsoleColor old = Console.ForegroundColor;
+
+            Console.Write("    Now Move: " + SelectionPlayerColor(chess.ColorMove));            
+
+            Console.ForegroundColor = old;
+        }
+
+        
+
+        public static void PrintMakeMove()
+        {
+            ConsoleColor old = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write($"\nPlease Make Move: ");
+
+            Console.ForegroundColor = old;
+
+        }
+
+        #endregion
+
+        #region ---===    Private Method   ===---
+
+        private static string SelectionPlayerColor(string colorPlayer)
+        {
+            StringBuilder playerColor = new StringBuilder();
+
+            switch (colorPlayer)
+            {
+                case "white":
+
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+
+                    playerColor.Append("White\n");
+
+                    break;
+
+                case "black":
+
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+
+                    playerColor.Append("Black\n");
+
+                    break;
+            }
+
+            return playerColor.ToString();
+        }
+
         #endregion
 
     }

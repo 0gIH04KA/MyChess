@@ -63,6 +63,14 @@ namespace ChessRules
             }
         }
 
+        public string ColorMove
+        {
+            get
+            {
+                return _board.MoveColor.ToString();
+            }
+        }
+
         #endregion
 
         #region ---===   Ctor   ===---

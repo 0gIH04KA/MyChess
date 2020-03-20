@@ -31,23 +31,28 @@ namespace MyChess
 
             Console.ReadKey();
 
-            #endregion
+            #endregion  
 
             Chess chess = new Chess(Constant.startingFEN);
 
             while (!chess.IsGameOver)
             {
+                Console.Clear();
+
+                UI_Console.PrintColorPlayer(chess);
 #if DEBUG
                 Console.WriteLine(chess.Fen);
 #endif
 
                 UI_Console.Print(UI_Console.ChessToAscii(chess));
 
+#if DEBUG
                 foreach (string moves in chess.YieldValidMoves())
                 {
                     Console.WriteLine(moves);
                 }
-
+#endif
+                UI_Console.PrintMakeMove();
                 string move = Console.ReadLine();
 
                 if (move == "" )

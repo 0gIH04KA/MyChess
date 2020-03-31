@@ -40,9 +40,9 @@ namespace ChessRules
 
         #endregion
 
-        #region ---===   Override Method   ===---
+        #region ---===   IStartTesting   ===---
 
-        protected override bool StartTest()
+        public bool StartTest()
         {
             return ZeroTest() && FirstTest() && SecondTest() && ThirdTest() && FourthTest();
         }

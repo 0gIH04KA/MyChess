@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChessRules
 {
-    interface ITesting
+    interface ITesting : IStartTesting
     {
         bool ZeroTest(int val);
 

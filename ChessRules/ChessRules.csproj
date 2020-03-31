@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Тest\Interface\ITestModel.cs" />
+    <Compile Include="Тest\Interface\IStartTesting.cs" />
     <Compile Include="Тest\Sealed Class Testing\FiveTesting.cs" />
     <Compile Include="Тest\Sealed Class Testing\FourthTesting.cs" />
     <Compile Include="Тest\Sealed Class Testing\ThirdTesting.cs" />

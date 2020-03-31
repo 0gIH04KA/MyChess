@@ -21,7 +21,7 @@ namespace MyChess
         {
             #region ---===   Testing   ==---
 
-            Test test = new Test();
+            ITestModel test = new Test();
 
             Console.WriteLine("Loading Game....\n");
 

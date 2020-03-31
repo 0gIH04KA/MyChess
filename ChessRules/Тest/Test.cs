@@ -11,15 +11,19 @@ namespace ChessRules
     /// https://www.chessprogramming.org/Perft_Results
     /// 
     /// </summary>
-    public class Test
+    public class Test : ITestModel
     {
+        #region ---===   Static Members   ===---
+
         public static Random random = new Random();
-        
+
+        #endregion
+
         #region ---===   Public Methods   ===---
 
         public bool ModelTesting()
         {
-            Test test = InitRandomTest();
+            IStartTesting test = InitRandomTest();
 
             return test.StartTest();
         }
@@ -79,14 +83,14 @@ namespace ChessRules
 
         #region ---===   Private Methods   ===---
 
-        private Test InitRandomTest( int countTest = -1)
+        private IStartTesting InitRandomTest(int countTest = -1)
         {
             if (countTest < 0 || countTest > Constant.COUNT_TEST)
             {
                 countTest = random.Next(0, Constant.COUNT_TEST + 1);
             }
 
-            Test test;
+            IStartTesting test;
 
             switch (countTest)
             {
@@ -124,11 +128,11 @@ namespace ChessRules
 
         #endregion
 
-        #region ---===   Virtual Methods   ===---
+        #region ---===   Override Methods   ===---
 
-        protected virtual bool StartTest()
+        public override string ToString()
         {
-            throw new Exception();
+            return string.Format($"Test");
         }
 
         #endregion

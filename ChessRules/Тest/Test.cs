@@ -25,7 +25,42 @@ namespace ChessRules
         {
             IStartTesting test = InitRandomTest();
 
-            return test.StartTest();
+            try
+            {
+                return test.StartTest();
+            }
+            catch (FailStandartTestException)
+            {
+
+                throw;
+            }
+            catch (FailFirstTestException)
+            {
+
+                throw;
+            }
+            catch (FailSecondTestException)
+            {
+
+                throw;
+            }
+            catch (FailThridTestException)
+            {
+
+                throw;
+
+            }
+            catch (FailFourthTestException)
+            {
+
+                throw;
+            }
+            catch (FailFiveTestException)
+            {
+
+                throw;
+            }
+
         }
 
         #endregion
@@ -136,5 +171,6 @@ namespace ChessRules
         }
 
         #endregion
+
     }
 }

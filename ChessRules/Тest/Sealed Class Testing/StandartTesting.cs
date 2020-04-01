@@ -43,7 +43,31 @@ namespace ChessRules
 
         public bool StartTest()
         {
-            return ZeroTest() && FirstTest() && SecondTest() && ThirdTest();
+            try
+            {
+                return ZeroTest() && FirstTest() && SecondTest() && ThirdTest();
+            }
+            catch (ZeroTestException)
+            {
+
+                throw new FailSecondTestException("Zero Test is Fail");
+            }
+            catch (FirstTestException)
+            {
+
+                throw new FailSecondTestException("First Test is Fail");
+            }
+            catch (SecondTestException)
+            {
+
+                throw new FailSecondTestException("Second Test is Fail");
+            }
+            catch (ThirdTestException)
+            {
+
+                throw new FailSecondTestException("Third Test is Fail");
+            }
+            
         }
 
         #endregion

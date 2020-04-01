@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ChessRules
+{
+    class FailFourthTestException : Exception
+    {
+        public FailFourthTestException()
+        {
+        }
+
+        public FailFourthTestException(string message) : base(message)
+        {
+        }
+
+        public FailFourthTestException(string message, Exception innerException) : base(message, innerException)
+        {
+        }
+
+        protected FailFourthTestException(SerializationInfo info, StreamingContext context) : base(info, context)
+        {
+        }
+    }
+}

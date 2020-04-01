@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,7 +26,40 @@ namespace MyChess
 
             Console.WriteLine("Loading Game....\n");
 
-            Console.WriteLine(string.Format($"{test.ToString() + "  -->  " + test.ModelTesting()}" + "\n"));
+            try
+            {
+                UI_Console.PrintColorMassage(string.Format($"{test.ToString() + "  -->  " + test.ModelTesting() + "\n" }"), ConsoleColor.Green);
+            }
+            catch (Exception e)
+            {
+                UI_Console.PrintColorMassage(string.Format($"В процессе загрузки игры произошла ошибка\n\n" + e.Message + "\n\n"), ConsoleColor.Red);
+
+                Console.WriteLine("Для продолжения нужно обновить игру (:\n");
+                Console.WriteLine("Что бы загрузить обновление нажмите Enter иначе приложение будет закрыто");
+
+                ConsoleKeyInfo goToUpdate = Console.ReadKey(true);
+               
+                if (goToUpdate.Key == ConsoleKey.Enter)
+                {
+                    throw new NotImplementedException();
+                }
+                else
+                {
+                    Console.Clear();
+                  
+                    Console.WriteLine("\nОжидание освобождения ресурсов\n");
+
+                    System.Threading.Thread.Sleep(3000);
+
+                    UI_Console.PrintColorMassage("Ресурсы успешно освобождены \n", ConsoleColor.Green);
+                    Console.WriteLine("Для продолжения нажмите любую кнопку");
+
+                    Console.ReadKey();
+
+                    System.Diagnostics.Process.GetCurrentProcess().Kill();
+                }
+
+            }           
 
             Console.WriteLine("Для начала игры нажмите любую кнопку\n");
 
@@ -41,7 +75,7 @@ namespace MyChess
 
                 UI_Console.PrintColorPlayer(chess);
 #if DEBUG
-                Console.WriteLine(chess.Fen);
+                UI_Console.PrintColorMassage(chess.Fen, ConsoleColor.Blue);
 #endif
 
                 UI_Console.Print(UI_Console.ChessToAscii(chess));
@@ -49,7 +83,7 @@ namespace MyChess
 #if DEBUG
                 foreach (string moves in chess.YieldValidMoves())
                 {
-                    Console.WriteLine(moves);
+                    UI_Console.PrintColorMassage(moves, ConsoleColor.Gray);
                 }
 #endif
                 UI_Console.PrintMakeMove();
@@ -66,21 +100,13 @@ namespace MyChess
                 }
                 catch (CheckMateException e)
                 {
-                    ConsoleColor temp = Console.ForegroundColor;
-
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine(e.Message);
-                    Console.ForegroundColor = temp;
+                    UI_Console.PrintColorMassage(e.Message, ConsoleColor.Red);
 
                     break;
                 }
                 catch (StealMateException e)
                 {
-                    ConsoleColor temp = Console.ForegroundColor;
-
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine(e.Message);
-                    Console.ForegroundColor = temp;
+                    UI_Console.PrintColorMassage(e.Message, ConsoleColor.Red);
 
                     break;
                 }

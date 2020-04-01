@@ -41,6 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Тest\Test Exception\Fail Test Exception\FailFirstTestException.cs" />
+    <Compile Include="Тest\Test Exception\Fail Test Exception\FailFiveTestException.cs" />
+    <Compile Include="Тest\Test Exception\Fail Test Exception\FailFourthTestException.cs" />
+    <Compile Include="Тest\Test Exception\Fail Test Exception\FailSecondTestException.cs" />
+    <Compile Include="Тest\Test Exception\Fail Test Exception\FailStandartTestException.cs" />
     <Compile Include="Тest\Interface\ITestModel.cs" />
     <Compile Include="Тest\Interface\IStartTesting.cs" />
     <Compile Include="Тest\Sealed Class Testing\FiveTesting.cs" />
@@ -49,11 +54,12 @@
     <Compile Include="Тest\Sealed Class Testing\SecondTesting.cs" />
     <Compile Include="Тest\Sealed Class Testing\FirstTesting.cs" />
     <Compile Include="Тest\Interface\ITesting.cs" />
-    <Compile Include="Тest\Test Exception\ZeroTestException.cs" />
-    <Compile Include="Тest\Test Exception\FourthTestException.cs" />
-    <Compile Include="Тest\Test Exception\ThirdTestException.cs" />
-    <Compile Include="Тest\Test Exception\SecondTestException.cs" />
-    <Compile Include="Тest\Test Exception\FirstTestException.cs" />
+    <Compile Include="Тest\Test Exception\Fail Test Exception\FailThridTestException.cs" />
+    <Compile Include="Тest\Test Exception\Testing Exceptions\ZeroTestException.cs" />
+    <Compile Include="Тest\Test Exception\Testing Exceptions\FourthTestException.cs" />
+    <Compile Include="Тest\Test Exception\Testing Exceptions\ThirdTestException.cs" />
+    <Compile Include="Тest\Test Exception\Testing Exceptions\SecondTestException.cs" />
+    <Compile Include="Тest\Test Exception\Testing Exceptions\FirstTestException.cs" />
     <Compile Include="Model\Board\Board.cs" />
     <Compile Include="Model\Application Exception\CheckMateException.cs" />
     <Compile Include="Model\Chess.cs" />

@@ -111,25 +111,31 @@ namespace ChessRules
             Console.ForegroundColor = old;
         }
 
-        public static void PrintColorPlayer(Chess chess)
+        public static void PrintColorMassage(string message, ConsoleColor colorMessage = ConsoleColor.White)
         {
             ConsoleColor old = Console.ForegroundColor;
+            Console.ForegroundColor = colorMessage;
 
-            Console.Write("    Now Move: " + SelectionPlayerColor(chess.ColorMove));            
+            Console.WriteLine(message);
 
             Console.ForegroundColor = old;
         }
 
-        
+        public static void PrintMassage(string message)
+        {
+            Console.ResetColor();
+
+            Console.Write(message);
+        }
+
+        public static void PrintColorPlayer(Chess chess)
+        {
+            PrintMassage("    Now Move: " + SelectionPlayerColor(chess.ColorMove) + "\n");
+        }
 
         public static void PrintMakeMove()
         {
-            ConsoleColor old = Console.ForegroundColor;
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.Write($"\nPlease Make Move: ");
-
-            Console.ForegroundColor = old;
-
+            PrintMassage($"\nPlease Make Move: ");
         }
 
         #endregion
@@ -144,15 +150,11 @@ namespace ChessRules
             {
                 case "white":
 
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-
                     playerColor.Append("White\n");
 
                     break;
 
                 case "black":
-
-                    Console.ForegroundColor = ConsoleColor.Magenta;
 
                     playerColor.Append("Black\n");
 

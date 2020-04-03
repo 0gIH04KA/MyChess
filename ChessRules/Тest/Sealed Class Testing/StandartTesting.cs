@@ -36,6 +36,7 @@ namespace ChessRules
         private const int depthTest_1 = 20;
         private const int depthTest_2 = 400;
         private const int depthTest_3 = 8902;
+        private const int depthTest_4 = 197281;
 
         #endregion
 
@@ -45,7 +46,7 @@ namespace ChessRules
         {
             try
             {
-                return ZeroTest() && FirstTest() && SecondTest() && ThirdTest();
+                return ZeroTest() && FirstTest() && SecondTest() && ThirdTest() && FourthTest();
             }
             catch (ZeroTestException)
             {
@@ -76,92 +77,60 @@ namespace ChessRules
 
         public bool ZeroTest(int val = 0)
         {
-            try
+            int zeroTest = StandartTest(val, testingFEN);
+
+            if (zeroTest != depthTest_0)
             {
-                int zeroTest = StandartTest(val, testingFEN);
-
-                if (zeroTest != depthTest_0)
-                {
-                    throw new ZeroTestException($"Count on Testing = {zeroTest}. Desired Result = {depthTest_0}");
-                }
+                throw new ZeroTestException($"Count on Testing = {zeroTest}. Desired Result = {depthTest_0}");
             }
-            catch (CheckMateException)
-            {
-
-            }
-            catch (StealMateException)
-            {
-
-            }
-
+            
             return true;
 
         }
 
         public bool FirstTest(int val = 1)
         {
-            try
+            int firstTest = StandartTest(val, testingFEN);
+
+            if (firstTest != depthTest_1)
             {
-                int firstTest = StandartTest(val, testingFEN);
-
-                if (firstTest != depthTest_1)
-                {
-                    throw new FirstTestException($"Count on Testing = {firstTest}. Desired Result = {depthTest_1}");
-                }
+                throw new FirstTestException($"Count on Testing = {firstTest}. Desired Result = {depthTest_1}");
             }
-            catch (CheckMateException)
-            {
-
-            }
-            catch (StealMateException)
-            {
-
-            }
-
+           
             return true;
         }
 
         public bool SecondTest(int val = 2)
         {
-            try
+            int secondTest = StandartTest(val, testingFEN);
+
+            if (secondTest != depthTest_2)
             {
-                int secondTest = StandartTest(val, testingFEN);
-
-                if (secondTest != depthTest_2)
-                {
-                    throw new SecondTestException($"Count on Testing = {secondTest}. Desired Result = {depthTest_2}");
-                }
+                throw new SecondTestException($"Count on Testing = {secondTest}. Desired Result = {depthTest_2}");
             }
-            catch (CheckMateException)
-            {
-
-            }
-            catch (StealMateException)
-            {
-
-            }
-
+            
             return true;
         }
 
         public bool ThirdTest(int val = 3)
         {
-            try
-            {
-                int thirdTest = StandartTest(val, testingFEN);
+            int thirdTest = StandartTest(val, testingFEN);
 
-                if (thirdTest != depthTest_3)
-                {
-                    throw new ThirdTestException($"Count on Testing = {thirdTest}. Desired Result = {depthTest_3}");
-                }
+            if (thirdTest != depthTest_3)
+            {
+                throw new ThirdTestException($"Count on Testing = {thirdTest}. Desired Result = {depthTest_3}");
             }
-            catch (CheckMateException)
-            {
+            
+            return true;
+        }
 
-            }
-            catch (StealMateException)
-            {
+        public bool FourthTest(int val = 4)
+        {
+            int fourthTest = StandartTest(val, testingFEN);
 
+            if (fourthTest != depthTest_4)
+            {
+                throw new FourthTestException($"Count on Testing = {fourthTest}. Desired Result = {depthTest_4}");
             }
 
             return true;

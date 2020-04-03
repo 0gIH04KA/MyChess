@@ -399,7 +399,7 @@ namespace ChessRules
         private bool CanPawnMove()
         {
             if (_figureMoving.From.Y < 1 
-             || _figureMoving.From.Y > 6) //ToDo: заменить магические значения на константы
+             || _figureMoving.From.Y > 6)
             {   // пешка не может находится на 1 и на 6 
                 return false;
             }
@@ -540,6 +540,3 @@ namespace ChessRules
 
     }
 }
-
-
-

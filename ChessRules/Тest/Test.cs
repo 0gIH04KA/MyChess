@@ -101,7 +101,23 @@ namespace ChessRules
 
             foreach (string moves in chess.YieldValidMoves())
             {
-                count += NextMoves(step - 1, chess.Move(moves));
+                try
+                {
+                    count += NextMoves(step - 1, chess.Move(moves));
+                }
+                catch (CheckMateException)
+                {
+                    count++;
+
+                    continue;
+                }
+                catch (StealMateException)
+                {
+                    count++;
+
+                    continue;
+                }
+                
             }
 
             return count;
@@ -120,9 +136,9 @@ namespace ChessRules
 
         private IStartTesting InitRandomTest(int countTest = -1)
         {
-            if (countTest < 0 || countTest > Constant.COUNT_TEST)
+            if (countTest < 0 || countTest > ConstantForTest.COUNT_TEST)
             {
-                countTest = random.Next(0, Constant.COUNT_TEST + 1);
+                countTest = random.Next(0, ConstantForTest.COUNT_TEST + 1);
             }
 
             IStartTesting test;

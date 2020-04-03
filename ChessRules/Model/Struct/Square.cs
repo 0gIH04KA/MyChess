@@ -173,10 +173,10 @@ namespace ChessRules
         /// возвращает логическое значение нахождения клетки в пределах игрового поля
         /// 
         /// </returns>
-        public bool OnBoard() //ToDo: заменить магические значения на константы
+        public bool OnBoard() 
         {
-            return (_x >= 0 && _x < 8)
-                && (_y >= 0 && _y < 8);
+            return (_x >= 0 && _x < ConstantForBoard.WIDTH)
+                && (_y >= 0 && _y < ConstantForBoard.HEIGHT);
         }
 
         /// <summary>
@@ -186,9 +186,9 @@ namespace ChessRules
         /// </summary>
         public static IEnumerable<Square> YieldBoardSquare()
         {
-            for (int y = 0; y < 8; y++)
+            for (int y = 0; y < ConstantForBoard.HEIGHT; y++)
             {
-                for (int x = 0; x < 8; x++)
+                for (int x = 0; x < ConstantForBoard.WIDTH; x++)
                 {
                     yield return new Square(x, y);
                 }

@@ -38,12 +38,16 @@ namespace ChessRules
 
             sb.AppendLine("  +-----------------+");
 
-            for (int y = 7; y >= 0; y--)
+            for (
+                int y = ConstantForBoard.LAST_HORIZONTAL; 
+                    y >= ConstantForBoard.FIRST_HORIZONTAL; 
+                    y--
+                )
             {
                 sb.Append(y + 1);
                 sb.Append(" | ");
 
-                for (int x = 0; x < 8; x++)
+                for (int x = 0; x < ConstantForBoard.WIDTH; x++)
                 {
                     sb.Append(chess.GetFigureAt(x, y) + " ");
                 }

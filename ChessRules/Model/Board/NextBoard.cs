@@ -83,19 +83,19 @@ namespace ChessRules
 
             if (_figureMoving.FigurE == Figure.whitePawn)
             {
-                if (_figureMoving.From.Y == 1 
-                 && _figureMoving.To.Y == 3)    //ToDo: заменить магические значения на константы
+                if (_figureMoving.From.Y == ConstantForPawn.START_HORIZONTAL_WHITE_PAWN
+                 && _figureMoving.To.Y == ConstantForPawn.JUMP_HORIZONTAL_WHITE_PAWN)    
                 {
-                    Enpassant = new Square(_figureMoving.From.X, 2);
+                    Enpassant = new Square(_figureMoving.From.X, ConstantForPawn.HORIZONTAL_WHITE_ENPASSANT);
                 }
             }
 
             if (_figureMoving.FigurE == Figure.blackPawn)
             {
-                if (_figureMoving.From.Y == 6
-                 && _figureMoving.To.Y == 4)    //ToDo: заменить магические значения на константы
+                if (_figureMoving.From.Y == ConstantForPawn.START_HORIZONTAL_BLACK_PAWN
+                 && _figureMoving.To.Y == ConstantForPawn.JUMP_HORIZONTAL_BLACK_PAWN)   
                 {
-                    Enpassant = new Square(_figureMoving.From.X, 5);
+                    Enpassant = new Square(_figureMoving.From.X, ConstantForPawn.HORIZONTAL_BLACK_ENPASSANT);
                 }
             }
         }
@@ -155,12 +155,12 @@ namespace ChessRules
             //  перемещение белой ладьи при короткой рокировке
             if (_figureMoving.FigurE == Figure.whiteKing)
             {
-                if (_figureMoving.From == new Square("e1"))
+                if (_figureMoving.From == new Square(ConstantForCastle.CELL_WHITE_KING))     
                 {
-                    if (_figureMoving.To == new Square("g1"))
+                    if (_figureMoving.To == new Square(ConstantForCastle.CELL_WHITE_RIGHT_KNIGHT))
                     {
-                        SetFigureAt(new Square("h1"), Figure.none);
-                        SetFigureAt(new Square("f1"), Figure.whiteRook);
+                        SetFigureAt(new Square(ConstantForCastle.CELL_WHITE_RIGHT_ROOK), Figure.none);
+                        SetFigureAt(new Square(ConstantForCastle.CELL_WHITE_RIGHT_BISHOP), Figure.whiteRook);
 
                         return;
                     }
@@ -170,12 +170,12 @@ namespace ChessRules
             //  перемещение белой ладьи при длинной рокировке
             if (_figureMoving.FigurE == Figure.whiteKing)
             {
-                if (_figureMoving.From == new Square("e1"))
+                if (_figureMoving.From == new Square(ConstantForCastle.CELL_WHITE_KING))
                 {
-                    if (_figureMoving.To == new Square("c1"))
+                    if (_figureMoving.To == new Square(ConstantForCastle.CELL_WHITE_LEFT_BISHOP))
                     {
-                        SetFigureAt(new Square("a1"), Figure.none);
-                        SetFigureAt(new Square("d1"), Figure.whiteRook);
+                        SetFigureAt(new Square(ConstantForCastle.CELL_WHITE_LEFT_ROOK), Figure.none);
+                        SetFigureAt(new Square(ConstantForCastle.CELL_WHITE_QUEEN), Figure.whiteRook);
 
                         return;
                     }
@@ -185,12 +185,12 @@ namespace ChessRules
             //  перемещение черной ладьи при короткой рокировке
             if (_figureMoving.FigurE == Figure.blackKing)
             {
-                if (_figureMoving.From == new Square("e8"))
+                if (_figureMoving.From == new Square(ConstantForCastle.CELL_BLACK_KING))
                 {
-                    if (_figureMoving.To == new Square("g8"))
+                    if (_figureMoving.To == new Square(ConstantForCastle.CELL_BLACK_RIGHT_KNIGHT))
                     {
-                        SetFigureAt(new Square("h8"), Figure.none);
-                        SetFigureAt(new Square("f8"), Figure.blackRook);
+                        SetFigureAt(new Square(ConstantForCastle.CELL_BLACK_RIGHT_ROOK), Figure.none);
+                        SetFigureAt(new Square(ConstantForCastle.CELL_BLACK_RIGHT_BISHOP), Figure.blackRook);
 
                         return;
                     }
@@ -200,12 +200,12 @@ namespace ChessRules
             //  перемещение черной ладьи при длинной рокировке
             if (_figureMoving.FigurE == Figure.blackKing)
             {
-                if (_figureMoving.From == new Square("e8"))
+                if (_figureMoving.From == new Square(ConstantForCastle.CELL_BLACK_KING))
                 {
-                    if (_figureMoving.To == new Square("c8"))
+                    if (_figureMoving.To == new Square(ConstantForCastle.CELL_BLACK_LEFT_BISHOP))
                     {
-                        SetFigureAt(new Square("a8"), Figure.none);
-                        SetFigureAt(new Square("d8"), Figure.blackRook);
+                        SetFigureAt(new Square(ConstantForCastle.CELL_BLACK_LEFT_ROOK), Figure.none);
+                        SetFigureAt(new Square(ConstantForCastle.CELL_BLACK_QUEEN), Figure.blackRook);
 
                         return;
                     }
@@ -232,12 +232,12 @@ namespace ChessRules
 
                 case Figure.whiteRook:
 
-                    if (_figureMoving.From == new Square("a1"))
+                    if (_figureMoving.From == new Square(ConstantForCastle.CELL_WHITE_LEFT_ROOK))
                     {
                         CanCastleA1 = false;
                     }
 
-                    if (_figureMoving.From == new Square("h1"))
+                    if (_figureMoving.From == new Square(ConstantForCastle.CELL_WHITE_RIGHT_ROOK))
                     {
                         CanCastleH1 = false;
                     }
@@ -253,12 +253,12 @@ namespace ChessRules
                
                 case Figure.blackRook:
 
-                    if (_figureMoving.From == new Square("a8"))
+                    if (_figureMoving.From == new Square(ConstantForCastle.CELL_BLACK_LEFT_ROOK))
                     {
                         CanCastleA8 = false;
                     }
 
-                    if (_figureMoving.From == new Square("h8"))
+                    if (_figureMoving.From == new Square(ConstantForCastle.CELL_BLACK_RIGHT_ROOK))
                     {
                         CanCastleH8 = false;
                     }

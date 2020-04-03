@@ -205,19 +205,15 @@ namespace ChessRules
             _figure = (Figure)move[0];
             _from = new Square(move.Substring(1, 2));
             _to = new Square(move.Substring(3, 2));
-            
+
+            _promotion = Figure.none;
+
             if (move.Length == 6)
             {
                 _promotion = (Figure)move[5];
             }
-
-            _promotion = Figure.none;
-
+           
         }
-
-        #endregion
-
-        #region ---===   Method   ===---
 
         #endregion
 

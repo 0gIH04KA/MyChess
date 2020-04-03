@@ -88,7 +88,8 @@ namespace ChessRules
         /// </returns>
         public static IEnumerable<Figure> YeldPromotions(this Figure figure, Square to)
         {
-            if (figure == Figure.whitePawn && to.Y == 7)
+            if (figure == Figure.whitePawn 
+               && to.Y == ConstantForBoard.LAST_HORIZONTAL)
             {
                 yield return Figure.whiteQueen;
                 yield return Figure.whiteRook;
@@ -97,7 +98,8 @@ namespace ChessRules
             }
             else
             {
-                if (figure == Figure.blackPawn && to.Y == 0)
+                if (figure == Figure.blackPawn 
+                   && to.Y == ConstantForBoard.FIRST_HORIZONTAL)
                 {
                     yield return Figure.blackQueen;
                     yield return Figure.blackRook;

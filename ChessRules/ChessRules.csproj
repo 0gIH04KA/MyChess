@@ -41,6 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Constant\ConstantForBoard.cs" />
+    <Compile Include="Model\Constant\ConstantForCastle.cs" />
+    <Compile Include="Model\Constant\ConstantForPawn.cs" />
+    <Compile Include="Model\Constant\ConstantForParseFEN.cs" />
+    <Compile Include="Тest\Constant\ConstantForTest.cs" />
     <Compile Include="Тest\Test Exception\Fail Test Exception\FailFirstTestException.cs" />
     <Compile Include="Тest\Test Exception\Fail Test Exception\FailFiveTestException.cs" />
     <Compile Include="Тest\Test Exception\Fail Test Exception\FailFourthTestException.cs" />
@@ -65,7 +70,7 @@
     <Compile Include="Model\Chess.cs" />
     <Compile Include="Model\Enum\Color.cs" />
     <Compile Include="Model\Extension Class\ColorMethods.cs" />
-    <Compile Include="Model\Enum\Constant.cs" />
+    <Compile Include="Model\Constant\Constant.cs" />
     <Compile Include="Model\Enum\Figure.cs" />
     <Compile Include="Model\Extension Class\FigureMethods.cs" />
     <Compile Include="Model\FigureMoving.cs" />

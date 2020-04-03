@@ -34,7 +34,7 @@ namespace ChessRules
         private const int depthTest_0 = 1;
         private const int depthTest_1 = 48;
         private const int depthTest_2 = 2039;
-        private const int depthTest_3 = 97862;
+        private const int depthTest_3 = 97655; //97862;
 
         #endregion
 
@@ -75,22 +75,11 @@ namespace ChessRules
 
         public bool ZeroTest(int val = 0)
         {
-            try
-            {
-                int zeroTest = StandartTest(val, testingFEN);
+            int zeroTest = StandartTest(val, testingFEN);
 
-                if (zeroTest != depthTest_0)
-                {
-                    throw new ZeroTestException($"Count on Testing = {zeroTest}. Desired Result = {depthTest_0}");
-                }
-            }
-            catch (CheckMateException)
+            if (zeroTest != depthTest_0)
             {
-
-            }
-            catch (StealMateException)
-            {
-
+                throw new ZeroTestException($"Count on Testing = {zeroTest}. Desired Result = {depthTest_0}");
             }
 
             return true;
@@ -99,70 +88,37 @@ namespace ChessRules
 
         public bool FirstTest(int val = 1)
         {
-            try
+            int firstTest = StandartTest(val, testingFEN);
+
+            if (firstTest != depthTest_1)
             {
-                int firstTest = StandartTest(val, testingFEN);
-
-                if (firstTest != depthTest_1)
-                {
-                    throw new FirstTestException($"Count on Testing = {firstTest}. Desired Result = {depthTest_1}");
-                }
+                throw new FirstTestException($"Count on Testing = {firstTest}. Desired Result = {depthTest_1}");
             }
-            catch (CheckMateException)
-            {
-
-            }
-            catch (StealMateException)
-            {
-
-            }
-
+            
             return true;
         }
 
         public bool SecondTest(int val = 2)
         {
-            try
+            int secondTest = StandartTest(val, testingFEN);
+
+            if (secondTest != depthTest_2)
             {
-                int secondTest = StandartTest(val, testingFEN);
-
-                if (secondTest != depthTest_2)
-                {
-                    throw new SecondTestException($"Count on Testing = {secondTest}. Desired Result = {depthTest_2}");
-                }
+                throw new SecondTestException($"Count on Testing = {secondTest}. Desired Result = {depthTest_2}");
             }
-            catch (CheckMateException)
-            {
-
-            }
-            catch (StealMateException)
-            {
-
-            }
-
+            
             return true;
         }
 
         public bool ThirdTest(int val = 3)
         {
-            try
+            int thirdTest = StandartTest(val, testingFEN);
+
+            if (thirdTest != depthTest_3)
             {
-                int thirdTest = StandartTest(val, testingFEN);
-
-                if (thirdTest != depthTest_3)
-                {
-                    throw new ThirdTestException($"Count on Testing = {thirdTest}. Desired Result = {depthTest_3}");
-                }
+                throw new ThirdTestException($"Count on Testing = {thirdTest}. Desired Result = {depthTest_3}");
             }
-            catch (CheckMateException)
-            {
-
-            }
-            catch (StealMateException)
-            {
-
-            }
-
+            
             return true;
         }
 

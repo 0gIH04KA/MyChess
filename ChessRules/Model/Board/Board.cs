@@ -18,10 +18,10 @@ namespace ChessRules
         private string _fen;
         private Color _moveColor;
 
-        private bool _canCastleA1;  //возможность рокировка K
-        private bool _canCastleH1;  //возможность рокировка Q
-        private bool _canCastleA8;  //возможность рокировка k
-        private bool _canCastleH8;  //возможность рокировка q
+        private bool _canCastleA1;  //возможность длинная рокировка белых   "Q" - обозначение в нотации Форсайта–Эдвардса 
+        private bool _canCastleH1;  //возможность короткая рокировка белых  "K" - обозначение в нотации Форсайта–Эдвардса 
+        private bool _canCastleA8;  //возможность длинная рокировка черных  "q" - обозначение в нотации Форсайта–Эдвардса 
+        private bool _canCastleH8;  //возможность короткой рокировка черных "k" - обозначение в нотации Форсайта–Эдвардса 
 
         private Square _enpassant;  //клетка битого поля
 
@@ -197,7 +197,7 @@ namespace ChessRules
         public Board(string fen)
         {
             _fen = fen;
-            _figures = new Figure[8, 8];  //ToDo: заменить магические значения на константы
+            _figures = new Figure[ConstantForBoard.WIDTH, ConstantForBoard.HEIGHT];
             Init();
         }
 
@@ -315,6 +315,7 @@ namespace ChessRules
             //0                                           1 2    3 4 5
 
             string[] parts = _fen.Split();
+
             InitFigures(parts[0]);
             InitMoveColor(parts[1]);
             InitCastleFlags(parts[2]);
@@ -387,9 +388,9 @@ namespace ChessRules
 
             string[] lines = parts_0.Split('/');
 
-            for (int y = 7; y >= 0; y--)
+            for (int y = (ConstantForBoard.HEIGHT - 1); y >= 0; y--)
             {
-                for (int x = 0; x < 8; x++)
+                for (int x = 0; x < ConstantForBoard.WIDTH; x++)
                 {
                     _figures[x, y] = (Figure)lines[7 - y][x];
                 }
@@ -404,7 +405,7 @@ namespace ChessRules
         /// 
         /// <param name="str">
         /// 
-        /// 
+        /// часть FENa которая парсится
         /// 
         /// </param>
         /// 
@@ -416,12 +417,13 @@ namespace ChessRules
         private static string ParseFEN_AndReplaceOnFigureNone(string str)
         {
             // 8 --> 71 --> 611 -->> 1111_1111
-            for (int j = 8; j >= 2; j--)
+            for (int j = ConstantForBoard.MAX_FIGURES_ON_LINE; j >= 2; j--)
             {
-                str = str.Replace(j.ToString(), (j - 1).ToString() + "1");
+                str = str.Replace(j.ToString(), (j - 1).ToString() 
+                        + ConstantForParseFEN.SYMBOL_EMPTY_CELL_ON_FEN.ToString()) ;
             }
 
-            str = str.Replace('1', (char)Figure.none);
+            str = str.Replace(ConstantForParseFEN.SYMBOL_EMPTY_CELL_ON_FEN, (char)Figure.none);
 
             return str;
         }
@@ -439,7 +441,7 @@ namespace ChessRules
         /// </param>
         private void InitMoveColor(string parts_1)
         {
-            if (parts_1 == "b")
+            if (parts_1 == ConstantForParseFEN.BLACK_PLAYER.ToString())
             {
                 _moveColor = Color.black;
             }
@@ -462,10 +464,10 @@ namespace ChessRules
         /// </param>
         private void InitCastleFlags(string parts_2)
         {
-            _canCastleA1 = parts_2.Contains("Q");
-            _canCastleH1 = parts_2.Contains("K");
-            _canCastleA8 = parts_2.Contains("q");
-            _canCastleH8 = parts_2.Contains("k");
+            _canCastleA1 = parts_2.Contains(ConstantForCastle.LONG_CASTLE_WHITE.ToString());
+            _canCastleH1 = parts_2.Contains(ConstantForCastle.SHORT_CASTLE_WHITE.ToString());
+            _canCastleA8 = parts_2.Contains(ConstantForCastle.LONG_CASTLE_BLACK.ToString());
+            _canCastleH8 = parts_2.Contains(ConstantForCastle.SHORT_CASTLE_BLACK.ToString());
         }
 
         /// <summary>
